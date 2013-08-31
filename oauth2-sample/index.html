@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>oAuth 2 Demo Flow</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript">
+			
+			var params = {}, queryString = location.hash.substring(1),
+				regex = /([^&=]+)=([^&]*)/g, m;
+			while (m = regex.exec(queryString)) {
+				params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+			}
+			
+			if (Object.keys(params).length > 0) { // doesn't work in all browsers. just for demo purposes.
+				
+				if (params['state'] != 'something') {
+					
+					console.log('state does not match what we sent. request was probably forged.');
+					
+				} else {
+				
+					var req = new XMLHttpRequest();
+					
+					req.open('GET', 'http://auth.api-demo.dev/oauth2/token?access_token=' + params['access_token']);
+					
+					req.onreadystatechange = function (e) {
+						if (req.readyState == 4) {
+							if(req.status == 200){
+								
+								console.log(req.response);
+								
+//								store the value of "access_token" in local storage. access tokens expire
+//								every hour. 
+
+								alert('Your token is: ' + params['access_token']);
+								
+							} else if(req.status == 400) {
+								
+								console.log('error');
+								
+							} else {
+								
+								console.log('who knows...');
+								
+							}
+						}
+					};
+					req.send(null);
+				
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<a href="http://auth.api-demo.dev/oauth2/authorize?client_id=demo-client-flow-key&response_type=token&state=something">Log in</a>
+		
+	</body>
+</html>

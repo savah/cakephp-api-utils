@@ -1,0 +1,1 @@
+<? echo $this->Session->flash(); ?>
