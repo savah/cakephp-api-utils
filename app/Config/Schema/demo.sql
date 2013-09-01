@@ -122,3 +122,7 @@ CREATE TABLE `users` (
 INSERT INTO `oauth2_clients` (`api_key`, `user_id`, `api_secret`, `app_name`, `redirect_uri`, `created`, `modified`)
 VALUES
   ('demo-client-flow-key',1,'59700c64729d53b473876124a1a427102dfc2f1a7f8e6f96e812563e2e46af229e7d3256073b1ac0ee828fb11b0e9cc167d6cd5c60bb91689450d1976ebe6f6d','Demo Client Flow App','http://client.api-demo.dev/',NOW(),NOW());
+
+INSERT INTO `roles` (`id`, `slug`, `name`) VALUES ('1', 'default', 'Default');
+INSERT INTO `roles` (`id`, `slug`, `name`) VALUES ('2', 'admin', 'Admin');
+INSERT INTO `roles` (`id`, `slug`, `name`) VALUES ('999', 'root', 'Root');
