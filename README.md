@@ -13,9 +13,9 @@ For now, the best way to get started is to set up the demo, experience it firsth
 1. Download/clone this repository
 2. Import the SQL in `/path/to/cakephp-api-utils/app/Config/Schema/demo.sql` to a database named `demo_api`. If you need to change any database configurations, do so in `/path/to/cakephp-api-utils/app/Config/database.php`
 3. Set up the following virtual hosts:
-  * api-demo.dev -> `/path/to/cakephp-api-utils/app`
-  * auth.api-demo.dev -> `/path/to/cakephp-api-utils/app`
-  * client.api-demo.dev -> `/path/to/cakephp-api-utils/oauth2-sample`
+  * api-demo.dev -> `/path/to/cakephp-api-utils`
+  * auth.api-demo.dev -> `/path/to/cakephp-api-utils`
+  * client.api-demo.dev -> `/path/to/cakephp-api-utils/oauth2-sample/app/webroot/oauth2-sample`
 4. Configure your hosts file to point these locations to your localhost
 5. Go to [http://client.api-demo.dev](http://client.api-demo.dev) in your browser
 6. Click login. Sign up for your first account, then login with it.
